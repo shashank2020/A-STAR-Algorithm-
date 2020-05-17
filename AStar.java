@@ -143,12 +143,12 @@ class AStar
                 //System.out.println("Expanding");
                 State s = frontier.get(index);
                 frontier.remove(index);
-                f++;
-                if(f>1000000)
-                {
-                    f=0;
-                    System.out.println(frontier.size());
-                }
+                // f++;
+                // if(f>1000000)
+                // {
+                //     f=0;
+                //     System.out.println(frontier.size());
+                // }
                 expand(s);
             }
 
@@ -217,16 +217,18 @@ class AStar
     //break after the first if to get a non optimal path quickly
     public int getNextState()
     {
-        int n=0;
-        for(int i=1;i<frontier.size();i++)
-        {
-            if(frontier.get(i).heuristic<=frontier.get(n).heuristic)
-            {
-                n=i;
-            }
-        }
+        // int n=0;
+        // for(int i=1;i<frontier.size();i++)
+        // {
+        //     if(frontier.get(i).heuristic<=frontier.get(n).heuristic)
+        //     {
+        //         n=i;
+        //     }
+        // }
+        // return n;
+        State s  = Collections.min(frontier,Comparator.comparing(a -> a.heuristic));
 
-        return n;
+        return frontier.indexOf(s);
     }
     public void collisionCheck(State s)
     {State x;
@@ -296,6 +298,7 @@ class AStar
             if(map[(int)p.getY()][(int)p.getX()]!='S' && map[(int)p.getY()][(int)p.getX()]!='G')
             map[(int)p.getY()][(int)p.getX()] = '*';
         }
+        System.out.println("moves = "+(s.path.size()-1));
         printmap();
     }
 

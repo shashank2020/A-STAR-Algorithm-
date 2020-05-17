@@ -1,0 +1,24 @@
++------------------------------------------------------------------------------------+
+|               XX   X  XXX XX                                                       |
+|           X XXXXXXXXXX XXXXXXX         XXXXX            XXXXXXXXXXXXXXXX           |
+|  XXXXXXXXXXXXXX XXXX XX XXXXX    X    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    |
+| XXXXXXXXXXXXXXXXXXXXXX XXXXX     X  X  X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  X     |
+|  XXXXXXXXXXXXXXXXXXXXXXX X          XG   XXXXXXXXXXXXXXXXXXXXXXXXXXXX  XX   X      |
+|        XXXXXXXXXXXXXXXXXX         XXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXX             |
+|          XXXXXXXXXXXXX          XXX XXX XXXXXXXXXXXXXXXXXXXXXXXXXXXX  X            |
+|           XXXXXXXXX             XX     XXXXXXXXXXXXXXXXXXXXXXXXXX X  X             |
+|            XXXXXXXX                XXXXXXXXXXX XXXXXXXXXXXXXXXXXX   X              |
+|  X          XXXXX   XX           XXXXXXXXXXXXXX XXX XXXXXXXXXX                     |
+|               XX   XXX           XXXXXXXXXXXXXXX XX   XXXXXX XX                    |
+|                XXXXXXXXX           XXXXXXXXXXXXX  XX   XXXX   XX                X  |
+|                  XXXXXXXXXX            XXXXXXXXXX       XX  X XX                   |
+|                   XXXXXXXXXXXX          XXXXXXXX        X  XXX XXX  X              |
+|                    XXXXXXXXXX           XXXXXXX            X                       |
+|                     XXXXXXXX            XXXXXX   X             XX X                |
+|                    XXXXXXXXX             XXXX  X             XXXXXXX     X         |
+|                    XXXXXX                 XX                XXXXXXXXX              |
+|                    XXXXX                   X                 XXXXXXX   S           |
+|                     XXX                                          XX   X            |
+|                     XX                                                             |
+|                      XX                                                            |
++------------------------------------------------------------------------------------+
