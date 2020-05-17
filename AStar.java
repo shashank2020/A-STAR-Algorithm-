@@ -209,6 +209,7 @@ class AStar
            // map[y+1][x-1]='c';
             //System.out.println("point added to left");
         }
+       
         
        
     }
@@ -307,7 +308,7 @@ class AStar
     {
         //list to store the coords
         ArrayList<Point2D> path ;
-        int heuristic;
+        double heuristic;
         public State( Point2D p )
         {
             path = new ArrayList<>();
@@ -332,10 +333,10 @@ class AStar
            
             return (int)path.get(path.size()-1).getY();
         }
-        public int Heuristic( State currs)
+        public double Heuristic( State currs)
         {
              int cost = currs.path.size();
-             int dist = (int)Math.abs(G.getX()- currs.path.get(currs.path.size()-1).getX()) + (int)Math.abs(G.getY()-currs.path.get(currs.path.size()-1).getY());
+             double dist = Math.sqrt(Math.pow(Math.abs(G.getX()- currs.path.get(currs.path.size()-1).getX()),2) + Math.pow(Math.abs(G.getY()-currs.path.get(currs.path.size()-1).getY()),2));
             return cost+dist;
         }
 
