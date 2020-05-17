@@ -213,7 +213,8 @@ class AStar
        
     }
    
-    //method interates through the frontier and returns the index of the state with the lowest f value
+    //method interates through the frontier and returns the index of the state with the lowest f value 
+    //break after the first if to get a non optimal path quickly
     public int getNextState()
     {
         int n=0;
@@ -239,10 +240,12 @@ class AStar
                     if(s.path.size()<x.path.size())
                     {
                         frontier.remove(x);
+                        return;
                     }
                     else
                     {
                         frontier.remove(s);
+                        return;
                     }
                 }
             }
