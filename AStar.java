@@ -10,10 +10,9 @@ import java.util.Scanner;
 import javafx.geometry.Point2D;
 import java.util.Comparator;
 
-
 class AStar
 {
-   
+    double sqr_t = Math.sqrt(2);
     //2d array to store the map
     char [][] map;
     Point2D S;
@@ -22,7 +21,6 @@ class AStar
     Boolean found = false;
     public static void main(  String [] args)
     {
-
         //check if a map was provided
         if(args.length!=1)
         {
@@ -54,7 +52,6 @@ class AStar
                     n++;
                     line=sc.nextLine();
                     outline = line.toCharArray();
-                   
                 }
                 if(outline[0]=='+' && outline[outline.length-1]=='+')
                 {
@@ -65,13 +62,11 @@ class AStar
                 {
                     error();
                 }
-                
             }
             else
             {
                 error();
             }
-
             sc.close();
 
             //read the map into the 2d array
@@ -83,10 +78,8 @@ class AStar
                 map_line = line.toCharArray();
                 for(int j=0;j<map_line.length;j++)
                 {
-                    
                     map[i][j] = map_line[j];
                 }
-                
             }
             //locate the start and goal coordinates
             locateSG();
@@ -95,15 +88,11 @@ class AStar
             //Search();
             printmap();
             Search();
-            
-            
         }
         catch( Exception ex)
         {
-            System.out.println(ex);
+            System.out.println(ex.getStackTrace()[0].getLineNumber());
         }
-
-
     }
     public void printF()
     {
@@ -111,8 +100,8 @@ class AStar
             System.out.println(s.x()+" , "+s.y());
             
         }
-       
     }
+
     //methid serches for the optimal path
     public void Search()
     {   
@@ -129,10 +118,8 @@ class AStar
         {
            //CHECK
             index = getNextState();
-
             int x = frontier.get(index).x();
             int y = frontier.get(index).y();
-             //System.out.println(map[y][x]);
             if(map[y][x]=='G')
             {
                 found = true;
@@ -140,18 +127,10 @@ class AStar
             }
             else
             {
-                //System.out.println("Expanding");
                 State s = frontier.get(index);
                 frontier.remove(index);
-                // f++;
-                // if(f>1000000)
-                // {
-                //     f=0;
-                //     System.out.println(frontier.size());
-                // }
                 expand(s);
             }
-
            //EXPAND
         }
         if(found)
@@ -161,76 +140,83 @@ class AStar
         }
         else{
             System.out.println("not found");
-
         }
     }
     catch(Exception e)
     {
-        System.out.println(e.getCause());
+        System.out.println(e.getStackTrace()[0].getLineNumber());
+        System.out.println(e);
     }
     }
-
     public void expand(State state)
     {
         State s = state;
         int x = s.x();
         int y = s.y();
-        State b;;
-        if(map[y+1][x]!='X' && map[y+1][x]!='-' && map[y+1][x]!='S' && (s.path.indexOf(new Point2D(x, y+1))==-1) && y+1<=map.length)
+        State b;
+
+        if(y+1 < map.length && map[y+1][x]!='X' && map[y+1][x]!='S' && (s.path.indexOf(new Point2D(x, y+1))==-1) && y+1<=map.length)
         {
             b= new State(s.path, new Point2D(x, y+1));
             frontier.add(b);
             collisionCheck(b);
-            // map[y+1][x]='c';
-            //System.out.println("point added under");
         }
-        if(map[y-1][x]!='X' && map[y-1][x]!='-' && map[y-1][x]!='S' && (s.path.indexOf(new Point2D(x, y-1))==-1) && y-1>=0 )
+        if(y-1 > 0 && map[y-1][x]!='X'  && map[y-1][x]!='S' && (s.path.indexOf(new Point2D(x, y-1))==-1) && y-1>=0 )
         {
             b=new State(s.path, new Point2D(x, y-1));
             frontier.add(b);
             collisionCheck(b);
-           // map[y-1][x]='c';
-            //System.out.println("point added on top");
         }
-        
-        if(map[y][x+1]!='X' && map[y][x+1]!='|' && map[y][x+1]!='S' && (s.path.indexOf(new Point2D(x+1, y))==-1) && x+1 <= map[y].length )
+        if(x+1 < map[0].length && map[y][x+1]!='X'  && map[y][x+1]!='S' && (s.path.indexOf(new Point2D(x+1, y))==-1) && x+1 <= map[y].length )
         {
             b=new State(s.path, new Point2D(x+1, y));
             frontier.add(b);
             collisionCheck(b);
-           // map[y][x+1]='c';
-            //System.out.println("point added to RIGHT "+(x+1)+" "+y);
         }
-        if(map[y][x-1]!='X' && map[y][x-1]!='|' && map[y+1][x-1]!='S' && (s.path.indexOf(new Point2D(x-1, y))==-1) && x-1>=0)
+        if(x-1>0 && map[y][x-1]!='X'  && map[y][x-1]!='S' && (s.path.indexOf(new Point2D(x-1, y))==-1) && x-1>=0)
         {
             b= new State(s.path, new Point2D(x-1, y));
             frontier.add(b);
             collisionCheck(b);
-           // map[y+1][x-1]='c';
-            //System.out.println("point added to left");
         }
-       
-        
-       
+        //diag right down
+        if(y+1 < map.length && x+1 < map[0].length && map[y+1][x+1]!='X' && map[y+1][x+1]!='S' &&  (s.path.indexOf(new Point2D(x+1, y+1))==-1) )
+        {
+            b= new State(s.path, new Point2D(x+1, y+1));
+            frontier.add(b);
+            collisionCheck(b);
+        }
+        //diag  left down
+        if( y+1 < map.length && x-1 > 0 && map[y+1][x-1]!='X' && map[y+1][x-1]!='S' && (s.path.indexOf(new Point2D(x-1, y+1))==-1) )
+        {
+            b= new State(s.path, new Point2D(x-1, y+1));
+            frontier.add(b);
+            collisionCheck(b);
+        }
+        //diag left up
+        if(y-1 > 0 && x-1 > 0 && map[y-1][x-1]!='X' && map[y-1][x-1]!='S' && (s.path.indexOf(new Point2D(x-1, y-1))==-1) )
+        {
+            b= new State(s.path, new Point2D(x-1, y-1));
+            frontier.add(b);
+            collisionCheck(b);
+        }
+        //diag right up
+        if(y-1 > 0 && x+1 < map[0].length && map[y-1][x+1]!='X' && map[y-1][x+1]!='S' &&  (s.path.indexOf(new Point2D(x+1, y-1))==-1) )
+        {
+            b= new State(s.path, new Point2D(x+1, y-1));
+            frontier.add(b);
+            collisionCheck(b);
+        }
     }
    
-    //method interates through the frontier and returns the index of the state with the lowest f value 
-    //break after the first if to get a non optimal path quickly
+   //gets the next state with the least f value
     public int getNextState()
     {
-        // int n=0;
-        // for(int i=1;i<frontier.size();i++)
-        // {
-        //     if(frontier.get(i).heuristic<=frontier.get(n).heuristic)
-        //     {
-        //         n=i;
-        //     }
-        // }
-        // return n;
         State s  = Collections.min(frontier,Comparator.comparing(a -> a.heuristic));
-
         return frontier.indexOf(s);
     }
+
+    //checks if 2 states converge at a point
     public void collisionCheck(State s)
     {State x;
         for(int i=0;i<frontier.size();i++)
@@ -240,7 +226,7 @@ class AStar
             {
                 if(s.x()==x.x()&&s.y()==x.y())
                 {
-                    if(s.path.size()<x.path.size())
+                    if(s.moves<=x.moves)
                     {
                         frontier.remove(x);
                         return;
@@ -263,9 +249,7 @@ class AStar
     {
         for(int i=0;i<map.length;i++)
         {
-            
-              char[] a = map[i];
-            
+            char[] a = map[i];
             for(int j=0;j<a.length;j++)
             {
                 System.out.print(a[j]);
@@ -299,7 +283,7 @@ class AStar
             if(map[(int)p.getY()][(int)p.getX()]!='S' && map[(int)p.getY()][(int)p.getX()]!='G')
             map[(int)p.getY()][(int)p.getX()] = '*';
         }
-        System.out.println("moves = "+(s.path.size()-1));
+        System.out.println("moves = "+s.moves);
         printmap();
     }
 
@@ -308,43 +292,41 @@ class AStar
     {
         //list to store the coords
         ArrayList<Point2D> path ;
+        double moves=0;
         double heuristic;
         public State( Point2D p )
         {
             path = new ArrayList<>();
             path.add(p);
+
             heuristic = Heuristic(this);
         }
         public State( ArrayList<Point2D> pat, Point2D p)
         {
             path = new ArrayList<>(pat);
             path.add(p);
-          
+            for(int i=1;i<path.size();i++)
+            {
+                if(Math.abs(path.get(i).getX()-path.get(i-1).getX())==Math.abs(path.get(i).getY()-path.get(i-1).getY()))
+                 moves+=Math.sqrt(2);
+                 else
+                 moves+=1;
+            }
             heuristic = Heuristic(this);
         }
-
         public int x()
         {
-            
             return (int)(path.get(path.size()-1)).getX();
         }
         public int y()
         {
-           
             return (int)path.get(path.size()-1).getY();
         }
         public double Heuristic( State currs)
         {
-             int cost = currs.path.size();
-             double dist = Math.sqrt(Math.pow(Math.abs(G.getX()- currs.path.get(currs.path.size()-1).getX()),2) + Math.pow(Math.abs(G.getY()-currs.path.get(currs.path.size()-1).getY()),2));
+             double cost = moves;
+             double dist = Math.hypot(G.getX()- currs.path.get(currs.path.size()-1).getX(), G.getY()-currs.path.get(currs.path.size()-1).getY());
             return cost+dist;
         }
-
-     
-        
-    
-
     }
-
-
 }
