@@ -155,7 +155,7 @@ class AStar
         int y = s.y();
         State b;
 
-        if(y+1 < map.length && map[y+1][x]!='X' && map[y+1][x]!='S' && (s.path.indexOf(new Point2D(x, y+1))==-1) && y+1<=map.length)
+        if(y+1 < map.length-1 && map[y+1][x]!='X' && map[y+1][x]!='S' && (s.path.indexOf(new Point2D(x, y+1))==-1) && y+1<=map.length-1)
         {
             b= new State(s.path, new Point2D(x, y+1));
             frontier.add(b);
@@ -167,7 +167,7 @@ class AStar
             frontier.add(b);
             collisionCheck(b);
         }
-        if(x+1 < map[0].length && map[y][x+1]!='X'  && map[y][x+1]!='S' && (s.path.indexOf(new Point2D(x+1, y))==-1) && x+1 <= map[y].length )
+        if(x+1 < map[0].length-1 && map[y][x+1]!='X'  && map[y][x+1]!='S' && (s.path.indexOf(new Point2D(x+1, y))==-1) && x+1 <= map[y].length-1 )
         {
             b=new State(s.path, new Point2D(x+1, y));
             frontier.add(b);
@@ -180,14 +180,14 @@ class AStar
             collisionCheck(b);
         }
         //diag right down
-        if(y+1 < map.length && x+1 < map[0].length && map[y+1][x+1]!='X' && map[y+1][x+1]!='S' &&  (s.path.indexOf(new Point2D(x+1, y+1))==-1) )
+        if(y+1 < map.length-1 && x+1 < map[0].length-1 && map[y+1][x+1]!='X' && map[y+1][x+1]!='S' &&  (s.path.indexOf(new Point2D(x+1, y+1))==-1) )
         {
             b= new State(s.path, new Point2D(x+1, y+1));
             frontier.add(b);
             collisionCheck(b);
         }
         //diag  left down
-        if( y+1 < map.length && x-1 > 0 && map[y+1][x-1]!='X' && map[y+1][x-1]!='S' && (s.path.indexOf(new Point2D(x-1, y+1))==-1) )
+        if( y+1 < map.length-1 && x-1 > 0 && map[y+1][x-1]!='X' && map[y+1][x-1]!='S' && (s.path.indexOf(new Point2D(x-1, y+1))==-1) )
         {
             b= new State(s.path, new Point2D(x-1, y+1));
             frontier.add(b);
@@ -201,7 +201,7 @@ class AStar
             collisionCheck(b);
         }
         //diag right up
-        if(y-1 > 0 && x+1 < map[0].length && map[y-1][x+1]!='X' && map[y-1][x+1]!='S' &&  (s.path.indexOf(new Point2D(x+1, y-1))==-1) )
+        if(y-1 > 0 && x+1 < map[0].length-1 && map[y-1][x+1]!='X' && map[y-1][x+1]!='S' &&  (s.path.indexOf(new Point2D(x+1, y-1))==-1) )
         {
             b= new State(s.path, new Point2D(x+1, y-1));
             frontier.add(b);
