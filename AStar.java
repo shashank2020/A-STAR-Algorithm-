@@ -1,16 +1,19 @@
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.lang.reflect.Array;
-import java.rmi.Remote;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
-import javafx.geometry.Point2D;
 import java.util.Comparator;
+import javafx.application.Application;
+import javafx.geometry.Point2D;
+import javafx.stage.Stage;
 
-class AStar
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+
+
+
+public class AStar extends Application
 {
     double sqr_t = Math.sqrt(2);
     //2d array to store the map
@@ -29,7 +32,10 @@ class AStar
         }
          File n = new File(args[0]);
          AStar astar = new AStar();
+         
         astar.initialize(n);
+       launch();
+        
     }
     public void initialize( File file)
     {
@@ -286,6 +292,27 @@ class AStar
         System.out.println("moves = "+s.moves);
         printmap();
     }
+
+    
+   @Override
+   public void start(Stage primaryStage)  {
+   try{
+    Group root = new Group();
+    Canvas canvas = new Canvas(300, 250);
+    root.getChildren().add(canvas);
+    primaryStage.setScene(new Scene(root));
+     primaryStage.show();
+   }
+   catch(Exception e)
+   {
+       System.out.println(e.getCause());
+   }
+       
+   }
+
+   
+
+   
 
     //inner class for each state
      class State 
