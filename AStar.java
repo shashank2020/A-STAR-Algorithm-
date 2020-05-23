@@ -308,8 +308,8 @@ public class AStar extends Application
    @Override
    public void start(Stage primaryStage)  {
    try{
-        int mapWidth = map[0].length * 20;
-        int mapHeight = map.length * 20;
+        int mapWidth = map[0].length * 10;
+        int mapHeight = map.length * 10;
         Group root = new Group();
         Scene scene = new Scene(root, mapWidth, mapHeight, Color.BLACK);
         LinkedList<javafx.scene.shape.Rectangle> rectangles = new LinkedList<>();
@@ -318,22 +318,22 @@ public class AStar extends Application
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
                 if(map[i][j] == 'S'){
-                    Circle circS = new Circle(j*20, i*20, 5);
+                    Circle circS = new Circle(j*10, i*10, 2.5);
                     circS.setFill(Color.GREEN);
                     circles.add(circS);
                 }
                 else if(map[i][j] == 'G'){
-                    Circle circG = new Circle(j*20, i*20, 5);
+                    Circle circG = new Circle(j*10, i*10, 2.5);
                     circG.setFill(Color.RED);
                     circles.add(circG);
                 }
                 else if(map[i][j] == 'X'){
-                    Rectangle rectX = new Rectangle(j*20, i*20, 10, 10);
+                    Rectangle rectX = new Rectangle(j*10, i*10, 5, 5);
                     rectX.setFill(Color.WHITE);
                     rectangles.add(rectX);
                 }
                 else if(map[i][j] == '*'){
-                    Circle circStar = new Circle(j*20, i*20, 5);
+                    Circle circStar = new Circle(j*10, i*10, 2.5);
                     circStar.setFill(Color.YELLOW);
                     circles.add(circStar);
                 }
