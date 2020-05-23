@@ -103,7 +103,7 @@ public class AStar extends Application
             System.out.println("S is at "+S.toString());
             System.out.println("G is at "+G.toString());
             //Search();
-            printmap();
+            // printmap();
             Search();
         }
         catch( Exception ex)
@@ -301,7 +301,7 @@ public class AStar extends Application
             map[(int)p.getY()][(int)p.getX()] = '*';
         }
         System.out.println("moves = "+s.moves);
-        printmap();
+        // printmap();
     }
 
     
