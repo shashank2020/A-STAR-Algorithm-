@@ -4,11 +4,9 @@ import java.util.Collections;
 import java.util.Scanner;
 import java.util.Comparator;
 import java.util.LinkedList;
-
 import javafx.application.Application;
 import javafx.geometry.Point2D;
 import javafx.stage.Stage;
-
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -25,13 +23,14 @@ import javafx.stage.Stage;
 public class AStar extends Application
 {
     double sqr_t = Math.sqrt(2);
+    double best_moves;
     //2d array to store the map
     static char [][] map;
     Point2D S;
     Point2D G;
     ArrayList<State> frontier;
     Boolean found = false;
-
+    int frontier_max_size=0;
     
     public static void main(  String [] args)
     {
@@ -63,7 +62,6 @@ public class AStar extends Application
             if(outline[0]=='+' && outline[outline.length-1]=='+')
             {
                 
-                System.out.println("first line");
                 while(sc.hasNextLine())
                 {
                     n++;
@@ -73,7 +71,6 @@ public class AStar extends Application
                 if(outline[0]=='+' && outline[outline.length-1]=='+')
                 {
                     map = new char[n][outline.length];
-                    System.out.println("last line");
                 }
                 else
                 {
@@ -103,7 +100,7 @@ public class AStar extends Application
             System.out.println("S is at "+S.toString());
             System.out.println("G is at "+G.toString());
             //Search();
-            printmap();
+            // printmap();
             Search();
         }
         catch( Exception ex)
@@ -129,11 +126,20 @@ public class AStar extends Application
         frontier = new ArrayList<State>();
         frontier.add(start);
         int f = 0;
-
+        long startTime = System.nanoTime();
         // //while loop that runs till the goal is found
         while(!found)
         {
            //CHECK
+           if(frontier.isEmpty()==true)
+           {
+               System.out.println("No Solution found!");
+               System.exit(0);
+           }
+            if(frontier.size()>frontier_max_size)
+            {
+                frontier_max_size = frontier.size();
+            }
             index = getNextState();
             int x = frontier.get(index).x();
             int y = frontier.get(index).y();
@@ -152,8 +158,13 @@ public class AStar extends Application
         }
         if(found)
         {
-            System.out.println("found");
+            long endTime   = System.nanoTime();
+            long totalTime = endTime - startTime;
+            System.out.println("Solution found");
+            System.out.println("Time taken to find a solution = "+(int)totalTime/Math.pow(10,6)+ "ms");
             printSolution(frontier.get(index));
+            
+            
         }
         else{
             System.out.println("not found");
@@ -224,6 +235,7 @@ public class AStar extends Application
             frontier.add(b);
             collisionCheck(b);
         }
+      
     }
    
    //gets the next state with the least f value
@@ -300,7 +312,10 @@ public class AStar extends Application
             if(map[(int)p.getY()][(int)p.getX()]!='S' && map[(int)p.getY()][(int)p.getX()]!='G')
             map[(int)p.getY()][(int)p.getX()] = '*';
         }
-        System.out.println("moves = "+s.moves);
+        best_moves = s.moves;
+        System.out.println("moves = "+best_moves);
+        System.out.println("Frontier Maxed at "+frontier_max_size+" stages");
+        
         printmap();
     }
 
@@ -347,7 +362,7 @@ public class AStar extends Application
             root.getChildren().addAll(rect);
         }
         
-        primaryStage.setTitle("A Star");
+        primaryStage.setTitle("A Star ");
         primaryStage.setScene(scene);
         primaryStage.show();
    }

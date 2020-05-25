@@ -1,24 +1,53 @@
-+------------------------------------------------------------------------------------+
-|               XX   X  XXX XX                                                       |
-|           X XXXXXXXXXX XXXXXXX         XXXXX            XXXXXXXXXXXXXXXX           |
-|  XXXXXXXXXXXXXX XXXX XX XXXXX    X    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    |
-| XXXXXXXXXXXXXXXXXXXXXX XXXXX     X  X  X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  X     |
-|  XXXXXXXXXXXXXXXXXXXXXXX X          XG   XXXXXXXXXXXXXXXXXXXXXXXXXXXX  XX   X      |
-|        XXXXXXXXXXXXXXXXXX         XXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXX             |
-|          XXXXXXXXXXXXX          XXX XXX XXXXXXXXXXXXXXXXXXXXXXXXXXXX  X            |
-|           XXXXXXXXX             XX     XXXXXXXXXXXXXXXXXXXXXXXXXX X  X             |
-|            XXXXXXXX                XXXXXXXXXXX XXXXXXXXXXXXXXXXXX   X              |
-|  X          XXXXX   XX           XXXXXXXXXXXXXX XXX XXXXXXXXXX                     |
-|               XX   XXX           XXXXXXXXXXXXXXX XX   XXXXXX XX                    |
-|                XXXXXXXXX           XXXXXXXXXXXXX  XX   XXXX   XX                X  |
-|                  XXXXXXXXXX            XXXXXXXXXX       XX  X XX                   |
-|                   XXXXXXXXXXXX          XXXXXXXX        X  XXX XXX  X              |
-|                    XXXXXXXXXX           XXXXXXX            X                       |
-|                     XXXXXXXX            XXXXXX   X             XX X                |
-|                    XXXXXXXXX             XXXX  X             XXXXXXX     X         |
-|                    XXXXXX                 XX                XXXXXXXXX              |
-|                    XXXXX                   X                 XXXXXXX   S           |
-|                     XXX                                          XX   X            |
-|                     XX                                                             |
-|                      XX                                                            |
-+------------------------------------------------------------------------------------+
++---------------------------------------------------+
+|XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|
+|S     X     X     X       X   X X       X     X   X|
+|XXXXX X XXX X XXX X XXXXX X X X X X XXXXX XXXXX X X|
+|X     X X   X   X X   X   X X   X X X   X X   X X X|
+|X XXXXX X XXXXX X XXX XXXXX XXX X XXX X X X X X X X|
+|X       X X     X   X     X   X X     X X X X X X X|
+|XXXXXXXXX X XXXXXXX XXXXX XXX X XXXXX X X X X XXX X|
+|X   X   X X X     X X     X   X   X   X X X X X   X|
+|X XXX X X X X XXX X X XXXXXXXXXXX X XXX X X X X XXX|
+|X X   X X X X   X   X X         X X X X X X X   X X|
+|X X XXX X X XXX XXXXX X XXXXXXX X X X X X X XXXXX X|
+|X     X   X   X X   X X       X   X X X     X   X X|
+|XXX X XXXXXXX X XXX X XXXXXXX XXX X X XXX XXX X X X|
+|X   X     X   X       X     X   X X X X   X   X X X|
+|X XXXXXXX X XXX XXX XXX XXX XXX X X X X XXX X XXX X|
+|X X       X   X X X X   X X X   X X X       X X   X|
+|X X XXXXXXXXX X X X X XXX X X X X X XXX XXXXX X XXX|
+|X X   X     X X   X     X   X X X     X X   X X   X|
+|X XXX X XXX X XXXXXXX X XXXXXXX XXXXX X X X X XXX X|
+|X   X X X   X X   X   X   X X   X   X X   X X     X|
+|XXX X X X XXX X XXX XXXXX X X XXXXX X X XXXXXXX XXX|
+|X   X   X     X X   X   X     X   X   X X       X X|
+|X X XXXXXXXXXXX X XXX X XXXXXXX X XXXXX X X XXXXX X|
+|X X X           X     X X       X   X   X X   X   X|
+|X XXX XXXXXXX XXXXXXXXX XXXXXXXXXXX X XXX XXX X XXX|
+|X     X   X   X   X     X           X X X   X   X X|
+|XXXXX X XXX XXX XXX XXXXX XXX XXXXXXX X XXX XXX X X|
+|X   X X   X   X   X         X X       X   X X X X X|
+|X X X X X X XXXXX XXX XXX X XXX XXXXXXXXX X X X X X|
+|X X   X X X   X X     X   X   X X   X   X     X X X|
+|XXXXXXXXX X X X XXXXXXXXXXXXX X X X X X XXXXXXX X X|
+|X       X   X   X     X       X   X   X X   X   X X|
+|X XXXXX X XXXXXXX XXX X X XXXXXXXXXXX X XXX X XXX X|
+|X   X X   X X   X X X   X     X   X   X     X X   X|
+|XXX X XXXXX X X X X X XXX XXX X X XXXXXXXXX X XXX X|
+|X   X X     X X X   X X   X   X X     X X   X X   X|
+|X XXX X X X XXX XXXXX XXXXXXXXXXXXXXX X X XXX X XXX|
+|X     X X X     X   X   X X     X     X X X   X   X|
+|XXX XXX X XXXXXXX X XXX X X XXX X XXXXX X X XXX XXX|
+|X   X X X X     X X X   X   X   X X   X   X X     X|
+|X XXX X X XXXXX X XXX XXXXXXX XXX X X XXXXX XXXXX X|
+|X     X X X   X X   X       X X   X X       X     X|
+|XXXXXXX X X X X XXX XXXXX X X X XXXXX XXXXXXX XXXXX|
+|X       X X X     X     X X X X X   X   X   X     X|
+|X XXXXX X X XXXXXXXXXXX XXX X X X X XXX X X XXX X X|
+|X X     X X   X     X X   X X X X X   X X X     X X|
+|X XXXXXXX XXX X XXX X XXX X X X X X XXX X XXXXXXX X|
+|X X   X X   X X   X X       X   X X     X   X     X|
+|X X X X XXX X XXXXX X XXX XXX XXX XXXXXXXXX X XXXXX|
+|X   X     X             X       X           X     G|
+|XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|
++---------------------------------------------------+
